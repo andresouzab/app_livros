@@ -2,20 +2,20 @@
 import logo from './logo.svg';
 import './App.css';
 import MenuSuperior from './components/MenuSuperior';
+import InclusaoLivros from './components/InclusaoLivros';
+
 
 const App = () => {
   return ( // Tudo que vai aqui dentro aparece na aplicação.
   <>
   <MenuSuperior/>
+  <InclusaoLivros/>
   
   </>  
   
 );
 }
 
-// próximos passos:
-// MenuSuperior.js
-// InclusaoLivros.js
 
 
 export default App;
