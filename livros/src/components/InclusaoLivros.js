@@ -36,7 +36,7 @@ const salvar = async (campos) => {
                 </div>
                 <div className="form-group mt-2">
                      <label htmlFor="autor">Autor</label>
-                         <input type="text" className="form-control" id="Autor" required {...register("Autor")}/>
+                         <input type="text" className="form-control" id="autor" required {...register("autor")}/>
                 </div>
                 <div className="form-group mt-2">URL da foto:
                     <label htmlFor="foto">Titulo</label>
