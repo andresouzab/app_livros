@@ -11,7 +11,7 @@ const MenuSuperior = () => {
             <Link to="/" className="nav-link">Inclusão</Link>
           </li>
           <li className="nav-item">
-            <Link to="/manut" className="nav-link">Manutenção</Link>
+            <Link to="/manutencao" className="nav-link">Manutenção</Link>
           </li>
           <li className="nav-item">
             <Link to="/resumo" className="nav-link">Resumo</Link>
