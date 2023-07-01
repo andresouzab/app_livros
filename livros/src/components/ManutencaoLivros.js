@@ -1,11 +1,15 @@
 //Componente para realizar a manutenção dos livros
 //importar os hooks componentes especiais do react
+import {useForm} from "react-hook-form";
 import { useState, useEffect } from "react"; // os uses são hook
 import { api } from "../config_axios";
-import ItemLista from "../ItemLista";
+import ItemLista from "./ItemLista";
+//Componente para realizar a manutenção de livros
+
 
 const ManutencaoLivros = () => {
     //código
+    const {register, handleSubmit, reset} = useForm();
     // vetor de livros, método setLivros para inserir livros no vetos livros
     const [livros, setLivros] = useState([]);
     //método obter lista de livros
@@ -51,18 +55,21 @@ const ManutencaoLivros = () => {
     //alterar os registros
     const alterar = async (id,titulo,index) => {
         const novoPreco = Number(prompt(`Digite o novo preço do livro ${titulo}`));
-        if (isNaN(novoPreco)){
+        if (isNaN(novoPreco) || novoPreco <= 0 ){
+            alert('Digite um número!')
             return;
         }
-        try{
+        try{//captura os erros 
+            //chamando o backend e passando os dados
             await api.put(`livros/${id}`,{preco: novoPreco});
             const livrosAtualizados = [...livros];
-            livrosAtualizados[index].preco = novoPreco;
+            const indiceLivro = livrosAtualizados.findIndex(livro => livro.id === id);
+            livrosAtualizados[indiceLivro].preco = novoPreco;
             setLivros(livrosAtualizados);
+            obterLista();
         }catch(error){
             alert(`Erro: ..Não foi possível alterar o livro ${titulo}: ${error}`);
         }
-    
     }
         return (
            <div className="container">
