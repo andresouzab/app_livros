@@ -7,15 +7,16 @@ import {api} from "../config_axios"
 import { useState } from "react";
 //Register serve para definir os nomes dos campos do form (validação)
 // handleSubmit, para indicar o método a ser acionado no evento onSubmit do form
-const InclusaoLivros = () => {
+const InclusaoAutores = () => {
 const {register, handleSubmit} = useForm();
 const [aviso, setAviso ] = useState("");
 const salvar = async (campos) => {
     try {
-            const resposta = await api.post("/livros", campos);
-            setAviso("Livro cadastrado com sucesso!");
+            const resposta = await api.post("/autores", campos);
+            setAviso("Autor cadastrado com sucesso!");
+            alert("Autor cadastrado com sucesso!");
         } catch (error) {
-            setAviso("Erro ao cadastrar livro!");
+            setAviso("Erro ao cadastrar o Autor!");
         }
     }
 //Metódo chamado para enviar o form on submit
@@ -28,32 +29,36 @@ const salvar = async (campos) => {
 
     return( //aqui é o que vai ser exibido em tela
         <div className="container">
-            <h4 className="container">Inclusão de Livros</h4>
+            <h4 className="container">Inclusão de Autores</h4>
             <form onSubmit={handleSubmit(salvar)}>
                 <div className="form-group">
-                    <label htmlFor="titulo">Titulo</label>
-                        <input type="text" className="form-control" id="titulo" required autoFocus {...register("titulo")}/>
+                    <label htmlFor="nome">Nome</label>
+                        <input type="text" className="form-control" id="nome" required autoFocus {...register("nome")}/>
                 </div>
                 <div className="form-group mt-2">
-                     <label htmlFor="autor">Autor</label>
-                         <input type="text" className="form-control" id="autor" required {...register("autor")}/>
+                     <label htmlFor="sobrenome">Sobrenome</label>
+                         <input type="text" className="form-control" id="sobrenome" required {...register("sobrenome")}/>
                 </div>
                 <div className="form-group mt-2">
-                    <label htmlFor="foto">URL da foto</label>
-                         <input type="url" className="form-control" id="foto" required {...register("foto")}/>
+                    <label htmlFor="idade">Idade</label>
+                         <input type="number" className="form-control" id="idade" required {...register("idade")}/>
                 </div>
                 <div className="row mt-2"></div>
                     <div className="col-sm-4">
                         <div className="form-group">
-                            <label htmlFor="ano">Ano de Publicação</label>
-                            <input type="number" className="form-control" id="ano" required {...register("ano")}/>
+                            <label htmlFor="nascimento">Data de Nascimento</label>
+                            <input type="date" className="form-control" id="nascimento" required {...register("nascimento")}/>
                     </div>
                 </div>
                 <div className="col-sm-8">
                     <div className="form-group">
-                        <label htmlFor="preco">Preço</label>
-                        <input type="number" className="form-control" id="preco" step="0.01" required {...register("preco")}/>
+                        <label htmlFor="sexo">Sexo</label>
+                        <input type="text" className="form-control" id="sexo" required {...register("sexo")}/>
                     </div>
+                </div>
+                <div className="form-group mt-2">
+                    <label htmlFor="telefone">Telefone</label>
+                    <input type="text" className="form-control" id="telefone" required {...register("telefone")}/>
                 </div>
                 <input type="submit" className="btn btn-primary mt-3" value="Enviar" />
                 <input type="reset" className="btn btn-danger mt-3" value="Limpar"/>
@@ -64,4 +69,4 @@ const salvar = async (campos) => {
     )
 }
 
-export default InclusaoLivros;
+export default InclusaoAutores;

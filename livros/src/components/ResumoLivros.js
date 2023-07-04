@@ -55,8 +55,8 @@ return(
             </p>
             <p>Preço médio dos livros</p>
         </span>
-
-        <div className="d-flex justify-content-center">
+        
+       <div className="d-flex justify-content-center">
             <Chart 
                 width={'1000px'}
                 height={'420px'}
@@ -77,7 +77,9 @@ return(
             />
         </div>
     </div>
+
 );
-};
-//fim da função ResumoLivros
+
+};//fim da função ResumoLivros
+
 export default ResumoLivros;

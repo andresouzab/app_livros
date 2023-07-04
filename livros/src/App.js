@@ -4,6 +4,8 @@ import InclusaoLivros from './components/InclusaoLivros';
 import ManutencaoLivros from './components/ManutencaoLivros';
 import ResumoLivros from './components/ResumoLivros';
 import { Routes, Route } from 'react-router-dom';
+import InclusaoAutores from './components/InclusaoAutores';
+import InclusaoEditoras from './components/InclusaoEditoras';
 
 
 
@@ -14,7 +16,10 @@ const App = () => {
   <Routes>
     <Route path="/" element={<InclusaoLivros/>}/>
     <Route path="/manutencao" element={<ManutencaoLivros/>}/>
+    <Route path="/manutencao/autores" element={<ManutencaoAutores/>}/>
     <Route path="/resumo" element={<ResumoLivros/>}/>
+    <Route path="/autores" element={<InclusaoAutores/>}/>
+    <Route path="/editoras" element={<InclusaoEditoras/>}/>
   </Routes>
   
   </>  

@@ -8,10 +8,13 @@ const MenuSuperior = () => {
         <Link to="/" className="navbar-brand">Controle Pessoal de Livros</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/" className="nav-link">Inclusão</Link>
+            <Link to="/" className="nav-link">Inclusão de Livros</Link>
+            <Link to="/autores" className="nav-link">Inclusão de Autores</Link>
+            <Link to="/editoras" className="nav-link">Inclusão de Editoras</Link>
           </li>
           <li className="nav-item">
-            <Link to="/manutencao" className="nav-link">Manutenção</Link>
+            <Link to="/manutencao" className="nav-link">Manutenção de Livros</Link>
+            <Link to="/manutencao/autores" className="nav-link">Manutenção de Autores</Link>
           </li>
           <li className="nav-item">
             <Link to="/resumo" className="nav-link">Resumo</Link>
